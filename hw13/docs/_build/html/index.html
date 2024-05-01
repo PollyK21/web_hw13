@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to REST API’s documentation! &#8212; REST API  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=0f882399" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">REST API  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to REST API’s documentation!</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="welcome-to-rest-api-s-documentation">
+<h1>Welcome to REST API’s documentation!<a class="headerlink" href="#welcome-to-rest-api-s-documentation" title="Link to this heading">¶</a></h1>
+<p>sphinx-quickstart on Thu Mar 2 15:09:18 2023.
+You can adapt this file completely to your liking, but it should at least
+contain the root <cite>toctree</cite> directive.</p>
+</section>
+<section id="id1">
+<h1>Welcome to Rest API’s documentation!<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="module-main">
+<span id="rest-api-main"></span><h1>REST API main<a class="headerlink" href="#module-main" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="main.read_root">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">read_root</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.read_root" title="Link to this definition">¶</a></dt>
+<dd><p>A simple root endpoint that returns a welcome message.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.startup">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">startup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.startup" title="Link to this definition">¶</a></dt>
+<dd><p>This function is called when the application starts up.
+It initializes the Redis connection and sets up rate limiting.</p>
+</dd></dl>
+
+</section>
+<section id="module-hw11.repository.contacts">
+<span id="rest-api-repository-contacts"></span><h1>REST API repository Contacts<a class="headerlink" href="#module-hw11.repository.contacts" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.contacts.create_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.contacts.</span></span><span class="sig-name descname"><span class="pre">create_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.schemas.ContactModel" title="hw11.schemas.ContactModel"><span class="pre">ContactModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hw11.database.models.Contact" title="hw11.database.models.Contact"><span class="pre">Contact</span></a></span></span><a class="headerlink" href="#hw11.repository.contacts.create_contact" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new contact for a user.</p>
+<p>Parameters:
+- body (ContactModel): The contact data.
+- user (User): The user who owns the contact.
+- db (Session): The database session.</p>
+<p>Returns:
+- Contact: The created contact.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.contacts.get_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.contacts.</span></span><span class="sig-name descname"><span class="pre">get_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hw11.database.models.Contact" title="hw11.database.models.Contact"><span class="pre">Contact</span></a></span></span><a class="headerlink" href="#hw11.repository.contacts.get_contact" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve a specific contact for a user based on the provided parameters.</p>
+<p>Parameters:
+- db (Session): The database session.
+- user (User): The user whose contact is being retrieved.
+- first_name (str, optional): The first name of the contact.
+- last_name (str, optional): The last name of the contact.
+- email (str, optional): The email address of the contact.</p>
+<p>Returns:
+- Contact: The retrieved contact.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.contacts.get_contacts">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.contacts.</span></span><span class="sig-name descname"><span class="pre">get_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hw11.database.models.Contact" title="hw11.database.models.Contact"><span class="pre">Contact</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hw11.repository.contacts.get_contacts" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve a list of contacts for a specific user.</p>
+<p>Parameters:
+- skip (int): Number of records to skip.
+- limit (int): Maximum number of records to return.
+- user (User): The user whose contacts are being retrieved.
+- db (Session): The database session.</p>
+<p>Returns:
+- List[Contact]: List of contacts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.contacts.remove_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.contacts.</span></span><span class="sig-name descname"><span class="pre">remove_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hw11.database.models.Contact" title="hw11.database.models.Contact"><span class="pre">Contact</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#hw11.repository.contacts.remove_contact" title="Link to this definition">¶</a></dt>
+<dd><p>Remove a contact for a user.</p>
+<p>Parameters:
+- contact_id (int): The ID of the contact to remove.
+- user (User): The user who owns the contact.
+- db (Session): The database session.</p>
+<p>Returns:
+- Contact | None: The removed contact, or None if the contact does not exist.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.contacts.upcoming_birthdays">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.contacts.</span></span><span class="sig-name descname"><span class="pre">upcoming_birthdays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hw11.database.models.Contact" title="hw11.database.models.Contact"><span class="pre">Contact</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hw11.repository.contacts.upcoming_birthdays" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve contacts with upcoming birthdays for a user.</p>
+<p>Parameters:
+- user (User): The user whose contacts are being retrieved.
+- db (Session): The database session.</p>
+<p>Returns:
+- List[Contact]: List of contacts with upcoming birthdays.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.contacts.update_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.contacts.</span></span><span class="sig-name descname"><span class="pre">update_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.schemas.ContactModel" title="hw11.schemas.ContactModel"><span class="pre">ContactModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hw11.database.models.Contact" title="hw11.database.models.Contact"><span class="pre">Contact</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#hw11.repository.contacts.update_contact" title="Link to this definition">¶</a></dt>
+<dd><p>Update an existing contact for a user.</p>
+<p>Parameters:
+- contact_id (int): The ID of the contact to update.
+- body (ContactModel): The updated contact data.
+- user (User): The user who owns the contact.
+- db (Session): The database session.</p>
+<p>Returns:
+- Contact | None: The updated contact, or None if the contact does not exist.</p>
+</dd></dl>
+
+</section>
+<section id="module-hw11.repository.users">
+<span id="rest-api-repository-users"></span><h1>REST API repository Users<a class="headerlink" href="#module-hw11.repository.users" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.users.confirmed_email">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.users.</span></span><span class="sig-name descname"><span class="pre">confirmed_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#hw11.repository.users.confirmed_email" title="Link to this definition">¶</a></dt>
+<dd><p>Mark a user’s email as confirmed.</p>
+<p>Parameters:
+- email (str): The email address of the user.
+- db (Session): The database session.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.users.create_user">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.users.</span></span><span class="sig-name descname"><span class="pre">create_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.schemas.UserModel" title="hw11.schemas.UserModel"><span class="pre">UserModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></span><a class="headerlink" href="#hw11.repository.users.create_user" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new user in the database.</p>
+<p>Parameters:
+- body (UserModel): The user data.
+- db (Session): The database session.</p>
+<p>Returns:
+- User: The created user.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.users.get_user_by_email">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.users.</span></span><span class="sig-name descname"><span class="pre">get_user_by_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></span><a class="headerlink" href="#hw11.repository.users.get_user_by_email" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve a user by email from the database.</p>
+<p>Parameters:
+- email (str): The email address of the user to retrieve.
+- db (Session): The database session.</p>
+<p>Returns:
+- User: The retrieved user.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.users.update_avatar">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.users.</span></span><span class="sig-name descname"><span class="pre">update_avatar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></span><a class="headerlink" href="#hw11.repository.users.update_avatar" title="Link to this definition">¶</a></dt>
+<dd><p>Update a user’s avatar URL.</p>
+<p>Parameters:
+- email (str): The email address of the user.
+- url (str): The new avatar URL.
+- db (Session): The database session.</p>
+<p>Returns:
+- User: The updated user.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.repository.users.update_token">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.repository.users.</span></span><span class="sig-name descname"><span class="pre">update_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#hw11.repository.users.update_token" title="Link to this definition">¶</a></dt>
+<dd><p>Update the refresh token for a user.</p>
+<p>Parameters:
+- user (User): The user whose token is being updated.
+- token (str | None): The new refresh token, or None if no token is provided.
+- db (Session): The database session.</p>
+</dd></dl>
+
+</section>
+<section id="module-hw11.routes.auth">
+<span id="rest-api-routes-auth"></span><h1>REST API routes Auth<a class="headerlink" href="#module-hw11.routes.auth" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.auth.confirmed_email">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.auth.</span></span><span class="sig-name descname"><span class="pre">confirmed_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.auth.confirmed_email" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to confirm a user’s email.</p>
+<p>Parameters:
+- token (str): The email confirmation token.
+- db (Session, optional): The database session. Defaults to Depends(get_db).</p>
+<p>Returns:
+- dict: A message indicating the status of the email confirmation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.auth.login">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.auth.</span></span><span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">OAuth2PasswordRequestForm</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(NoneType)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.auth.login" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to authenticate and log in a user.</p>
+<p>Parameters:
+- body (OAuth2PasswordRequestForm): The login form data.
+- db (Session, optional): The database session. Defaults to Depends(get_db).</p>
+<p>Returns:
+- TokenModel: The response containing the access and refresh tokens.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.auth.refresh_token">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.auth.</span></span><span class="sig-name descname"><span class="pre">refresh_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">credentials</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HTTPAuthorizationCredentials</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Security(HTTPBearer)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.auth.refresh_token" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to refresh an access token.</p>
+<p>Parameters:
+- credentials (HTTPAuthorizationCredentials): The HTTP authorization credentials.
+- db (Session, optional): The database session. Defaults to Depends(get_db).</p>
+<p>Returns:
+- TokenModel: The response containing the new access and refresh tokens.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.auth.request_email">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.auth.</span></span><span class="sig-name descname"><span class="pre">request_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.schemas.RequestEmail" title="hw11.schemas.RequestEmail"><span class="pre">RequestEmail</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BackgroundTasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.auth.request_email" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to request a confirmation email.</p>
+<p>Parameters:
+- body (RequestEmail): The request data containing the user’s email.
+- background_tasks (BackgroundTasks): Background tasks to be executed.
+- request (Request): The request object.
+- db (Session, optional): The database session. Defaults to Depends(get_db).</p>
+<p>Returns:
+- dict: A message indicating the status of the email request.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.auth.signup">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.auth.</span></span><span class="sig-name descname"><span class="pre">signup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.schemas.UserModel" title="hw11.schemas.UserModel"><span class="pre">UserModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BackgroundTasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.auth.signup" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to sign up a new user.</p>
+<p>Parameters:
+- body (UserModel): The user data.
+- background_tasks (BackgroundTasks): Background tasks to be executed.
+- request (Request): The request object.
+- db (Session, optional): The database session. Defaults to Depends(get_db).</p>
+<p>Returns:
+- UserResponse: The response containing the created user.</p>
+</dd></dl>
+
+</section>
+<section id="module-hw11.routes.contacts">
+<span id="rest-api-routes-contacts"></span><h1>REST API routes Contacts<a class="headerlink" href="#module-hw11.routes.contacts" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.contacts.create_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.contacts.</span></span><span class="sig-name descname"><span class="pre">create_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.schemas.ContactModel" title="hw11.schemas.ContactModel"><span class="pre">ContactModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_current_user)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.contacts.create_contact" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to create a new contact for the current user.</p>
+<p>Parameters:
+- body (ContactModel): The contact data.
+- db (Session, optional): The database session. Defaults to Depends(get_db).
+- current_user (User): The current user obtained from the access token.</p>
+<p>Returns:
+- ContactResponse: The created contact.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.contacts.find_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.contacts.</span></span><span class="sig-name descname"><span class="pre">find_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_current_user)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.contacts.find_contact" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to find a contact by ID, first name, last name, or email for the current user.</p>
+<p>Parameters:
+- db (Session, optional): The database session. Defaults to Depends(get_db).
+- current_user (User): The current user obtained from the access token.
+- first_name (str, optional): The first name of the contact.
+- last_name (str, optional): The last name of the contact.
+- email (str, optional): The email address of the contact.</p>
+<p>Returns:
+- ContactResponse: The retrieved contact.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.contacts.read_contacts">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.contacts.</span></span><span class="sig-name descname"><span class="pre">read_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_current_user)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.contacts.read_contacts" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to retrieve contacts for the current user.</p>
+<p>Parameters:
+- skip (int, optional): Number of records to skip. Defaults to 0.
+- limit (int, optional): Maximum number of records to return. Defaults to 100.
+- db (Session, optional): The database session. Defaults to Depends(get_db).
+- current_user (User): The current user obtained from the access token.</p>
+<p>Returns:
+- List[ContactResponse]: A list of contacts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.contacts.remove_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.contacts.</span></span><span class="sig-name descname"><span class="pre">remove_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_current_user)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.contacts.remove_contact" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to remove a contact for the current user.</p>
+<p>Parameters:
+- contact_id (int): The ID of the contact to remove.
+- db (Session, optional): The database session. Defaults to Depends(get_db).
+- current_user (User): The current user obtained from the access token.</p>
+<p>Returns:
+- ContactResponse: The removed contact.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.contacts.upcoming_birthdays">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.contacts.</span></span><span class="sig-name descname"><span class="pre">upcoming_birthdays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_current_user)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.contacts.upcoming_birthdays" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to retrieve upcoming birthdays of contacts for the current user.</p>
+<p>Parameters:
+- db (Session, optional): The database session. Defaults to Depends(get_db).
+- current_user (User): The current user obtained from the access token.</p>
+<p>Returns:
+- List[ContactResponse]: A list of contacts with upcoming birthdays.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.contacts.update_contact">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.contacts.</span></span><span class="sig-name descname"><span class="pre">update_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.schemas.ContactModel" title="hw11.schemas.ContactModel"><span class="pre">ContactModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contact_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_current_user)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.contacts.update_contact" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to update a contact for the current user.</p>
+<p>Parameters:
+- body (ContactModel): The updated contact data.
+- contact_id (int): The ID of the contact to update.
+- db (Session, optional): The database session. Defaults to Depends(get_db).
+- current_user (User): The current user obtained from the access token.</p>
+<p>Returns:
+- ContactResponse: The updated contact.</p>
+</dd></dl>
+
+</section>
+<section id="module-hw11.routes.users">
+<span id="rest-api-routes-users"></span><h1>REST API routes Users<a class="headerlink" href="#module-hw11.routes.users" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.users.read_users_me">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.users.</span></span><span class="sig-name descname"><span class="pre">read_users_me</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_current_user)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.users.read_users_me" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to retrieve the current user.</p>
+<p>Parameters:
+- current_user (User): The current user obtained from the access token.</p>
+<p>Returns:
+- UserDb: The current user.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.routes.users.update_avatar_user">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.routes.users.</span></span><span class="sig-name descname"><span class="pre">update_avatar_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UploadFile</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">File(PydanticUndefined)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.database.models.User" title="hw11.database.models.User"><span class="pre">User</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_current_user)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.routes.users.update_avatar_user" title="Link to this definition">¶</a></dt>
+<dd><p>Endpoint to update the avatar of the current user.</p>
+<p>Parameters:
+- file (UploadFile): The image file to upload as the avatar.
+- current_user (User): The current user obtained from the access token.
+- db (Session, optional): The database session. Defaults to Depends(get_db).</p>
+<p>Returns:
+- UserDb: The updated user with the new avatar.</p>
+</dd></dl>
+
+</section>
+<section id="module-hw11.services.auth">
+<span id="rest-api-service-auth"></span><h1>REST API service Auth<a class="headerlink" href="#module-hw11.services.auth" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.services.auth.</span></span><span class="sig-name descname"><span class="pre">Auth</span></span><a class="headerlink" href="#hw11.services.auth.Auth" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class containing authentication related methods.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.ALGORITHM">
+<span class="sig-name descname"><span class="pre">ALGORITHM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HS256'</span></em><a class="headerlink" href="#hw11.services.auth.Auth.ALGORITHM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.SECRET_KEY">
+<span class="sig-name descname"><span class="pre">SECRET_KEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'secret_key'</span></em><a class="headerlink" href="#hw11.services.auth.Auth.SECRET_KEY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.create_access_token">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_access_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expires_delta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.services.auth.Auth.create_access_token" title="Link to this definition">¶</a></dt>
+<dd><p>Generates a new access token.</p>
+<p>Parameters:
+- data (dict): The payload data to encode in the token.
+- expires_delta (Optional[float]): Optional expiration time for the token in seconds.</p>
+<p>Returns:
+- str: The encoded access token.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.create_email_token">
+<span class="sig-name descname"><span class="pre">create_email_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.services.auth.Auth.create_email_token" title="Link to this definition">¶</a></dt>
+<dd><p>Generates a token for email verification.</p>
+<p>Parameters:
+- data (dict): The payload data to encode in the token.</p>
+<p>Returns:
+- str: The encoded email verification token.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.create_refresh_token">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_refresh_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expires_delta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.services.auth.Auth.create_refresh_token" title="Link to this definition">¶</a></dt>
+<dd><p>Generates a new refresh token.</p>
+<p>Parameters:
+- data (dict): The payload data to encode in the token.
+- expires_delta (Optional[float]): Optional expiration time for the token in seconds.</p>
+<p>Returns:
+- str: The encoded refresh token.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.decode_refresh_token">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decode_refresh_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">refresh_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.services.auth.Auth.decode_refresh_token" title="Link to this definition">¶</a></dt>
+<dd><p>Decodes the provided refresh token and retrieves the email from its payload.</p>
+<p>Parameters:
+- refresh_token (str): The refresh token to decode.</p>
+<p>Returns:
+- str: The email address extracted from the token payload.</p>
+<p>Raises:
+- HTTPException: If the token cannot be validated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.get_current_user">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_current_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(OAuth2PasswordBearer)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Depends(get_db)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.services.auth.Auth.get_current_user" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the current user based on the provided access token.</p>
+<p>Parameters:
+- token (str): The access token.
+- db (Session): The database session.</p>
+<p>Returns:
+- User: The current user.</p>
+<p>Raises:
+- HTTPException: If the token cannot be validated or the user cannot be found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.get_email_from_token">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_email_from_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.services.auth.Auth.get_email_from_token" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the email address from the provided email verification token.</p>
+<p>Parameters:
+- token (str): The email verification token.</p>
+<p>Returns:
+- str: The email address extracted from the token payload.</p>
+<p>Raises:
+- HTTPException: If the token cannot be validated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.get_password_hash">
+<span class="sig-name descname"><span class="pre">get_password_hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.services.auth.Auth.get_password_hash" title="Link to this definition">¶</a></dt>
+<dd><p>Generates the hash for the provided password.</p>
+<p>Parameters:
+- password (str): The password to hash.</p>
+<p>Returns:
+- str: The hashed password.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.oauth2_scheme">
+<span class="sig-name descname"><span class="pre">oauth2_scheme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;fastapi.security.oauth2.OAuth2PasswordBearer</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#hw11.services.auth.Auth.oauth2_scheme" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.pwd_context">
+<span class="sig-name descname"><span class="pre">pwd_context</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CryptContext&gt;</span></em><a class="headerlink" href="#hw11.services.auth.Auth.pwd_context" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hw11.services.auth.Auth.verify_password">
+<span class="sig-name descname"><span class="pre">verify_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plain_password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed_password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.services.auth.Auth.verify_password" title="Link to this definition">¶</a></dt>
+<dd><p>Verifies if the provided plain password matches the hashed password.</p>
+<p>Parameters:
+- plain_password (str): The plain password.
+- hashed_password (str): The hashed password.</p>
+<p>Returns:
+- bool: True if passwords match, False otherwise.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hw11.services.email">
+<span id="rest-api-service-email"></span><h1>REST API service Email<a class="headerlink" href="#module-hw11.services.email" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.services.email.send_email">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.services.email.</span></span><span class="sig-name descname"><span class="pre">send_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">EmailStr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.services.email.send_email" title="Link to this definition">¶</a></dt>
+<dd><p>Sends an email for email verification.</p>
+<p>Parameters:
+- email (EmailStr): The email address of the recipient.
+- username (str): The username of the recipient.
+- host (str): The base URL of the application.</p>
+<p>Raises:
+- ConnectionErrors: If there is an error connecting to the mail server.</p>
+</dd></dl>
+
+</section>
+<section id="module-hw11.schemas">
+<span id="rest-api-schemas"></span><h1>REST API schemas<a class="headerlink" href="#module-hw11.schemas" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.schemas.ContactModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.schemas.</span></span><span class="sig-name descname"><span class="pre">ContactModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birthday</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.schemas.ContactModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Pydantic model representing contact data used for creating contacts.</p>
+<p>Attributes:
+- first_name (str): The first name of the contact (max length: 50).
+- last_name (str): The last name of the contact (max length: 50).
+- email (str): The email address of the contact (max length: 100).
+- phone (str): The phone number of the contact (max length: 100).
+- birthday (date): The birthday of the contact.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactModel.birthday">
+<span class="sig-name descname"><span class="pre">birthday</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">date</span></em><a class="headerlink" href="#hw11.schemas.ContactModel.birthday" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactModel.email">
+<span class="sig-name descname"><span class="pre">email</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.ContactModel.email" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactModel.first_name">
+<span class="sig-name descname"><span class="pre">first_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.ContactModel.first_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactModel.last_name">
+<span class="sig-name descname"><span class="pre">last_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.ContactModel.last_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactModel.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.ContactModel.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.ContactModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactModel.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'birthday':</span> <span class="pre">FieldInfo(annotation=date,</span> <span class="pre">required=True),</span> <span class="pre">'email':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MaxLen(max_length=100)]),</span> <span class="pre">'first_name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MaxLen(max_length=50)]),</span> <span class="pre">'last_name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MaxLen(max_length=50)]),</span> <span class="pre">'phone':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MaxLen(max_length=100)])}</span></em><a class="headerlink" href="#hw11.schemas.ContactModel.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactModel.phone">
+<span class="sig-name descname"><span class="pre">phone</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.ContactModel.phone" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.schemas.ContactResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.schemas.</span></span><span class="sig-name descname"><span class="pre">ContactResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birthday</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.schemas.ContactResponse" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hw11.schemas.ContactModel" title="hw11.schemas.ContactModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContactModel</span></code></a></p>
+<p>Pydantic model representing a contact response.</p>
+<p>Inherits from ContactModel.</p>
+<p>Attributes:
+- id (int): The unique identifier of the contact.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.schemas.ContactResponse.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#hw11.schemas.ContactResponse.Config" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactResponse.Config.orm_mode">
+<span class="sig-name descname"><span class="pre">orm_mode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#hw11.schemas.ContactResponse.Config.orm_mode" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactResponse.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hw11.schemas.ContactResponse.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactResponse.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.ContactResponse.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactResponse.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'orm_mode':</span> <span class="pre">True}</span></em><a class="headerlink" href="#hw11.schemas.ContactResponse.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.ContactResponse.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'birthday':</span> <span class="pre">FieldInfo(annotation=date,</span> <span class="pre">required=True),</span> <span class="pre">'email':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MaxLen(max_length=100)]),</span> <span class="pre">'first_name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MaxLen(max_length=50)]),</span> <span class="pre">'id':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'last_name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MaxLen(max_length=50)]),</span> <span class="pre">'phone':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MaxLen(max_length=100)])}</span></em><a class="headerlink" href="#hw11.schemas.ContactResponse.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.schemas.RequestEmail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.schemas.</span></span><span class="sig-name descname"><span class="pre">RequestEmail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">EmailStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.schemas.RequestEmail" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Pydantic model representing the request for email confirmation.</p>
+<p>Attributes:
+- email (EmailStr): The email address for confirmation.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.RequestEmail.email">
+<span class="sig-name descname"><span class="pre">email</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">EmailStr</span></em><a class="headerlink" href="#hw11.schemas.RequestEmail.email" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.RequestEmail.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.RequestEmail.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.RequestEmail.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.RequestEmail.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.RequestEmail.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">FieldInfo(annotation=EmailStr,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#hw11.schemas.RequestEmail.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.schemas.TokenModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.schemas.</span></span><span class="sig-name descname"><span class="pre">TokenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'bearer'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.schemas.TokenModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Pydantic model representing the token response.</p>
+<p>Attributes:
+- access_token (str): The access token.
+- refresh_token (str): The refresh token.
+- token_type (str): The type of token (default: “bearer”).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.TokenModel.access_token">
+<span class="sig-name descname"><span class="pre">access_token</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.TokenModel.access_token" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.TokenModel.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.TokenModel.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.TokenModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.TokenModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.TokenModel.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'access_token':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'refresh_token':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'token_type':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='bearer')}</span></em><a class="headerlink" href="#hw11.schemas.TokenModel.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.TokenModel.refresh_token">
+<span class="sig-name descname"><span class="pre">refresh_token</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.TokenModel.refresh_token" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.TokenModel.token_type">
+<span class="sig-name descname"><span class="pre">token_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.TokenModel.token_type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.schemas.</span></span><span class="sig-name descname"><span class="pre">UserDb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created_at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avatar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.schemas.UserDb" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Pydantic model representing user data retrieved from the database.</p>
+<p>Attributes:
+- id (int): The unique identifier of the user.
+- username (str): The username of the user.
+- email (str): The email address of the user.
+- created_at (datetime): The timestamp when the user was created.
+- avatar (str): The URL of the user’s avatar.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#hw11.schemas.UserDb.Config" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.Config.orm_mode">
+<span class="sig-name descname"><span class="pre">orm_mode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#hw11.schemas.UserDb.Config.orm_mode" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.avatar">
+<span class="sig-name descname"><span class="pre">avatar</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.UserDb.avatar" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#hw11.schemas.UserDb.created_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.email">
+<span class="sig-name descname"><span class="pre">email</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.UserDb.email" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hw11.schemas.UserDb.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.UserDb.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'orm_mode':</span> <span class="pre">True}</span></em><a class="headerlink" href="#hw11.schemas.UserDb.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'avatar':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'created_at':</span> <span class="pre">FieldInfo(annotation=datetime,</span> <span class="pre">required=True),</span> <span class="pre">'email':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'id':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'username':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#hw11.schemas.UserDb.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserDb.username">
+<span class="sig-name descname"><span class="pre">username</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.UserDb.username" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.schemas.UserModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.schemas.</span></span><span class="sig-name descname"><span class="pre">UserModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.schemas.UserModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Pydantic model representing user data used for user creation.</p>
+<p>Attributes:
+- username (str): The username of the user (min length: 5, max length: 16).
+- email (str): The email address of the user.
+- password (str): The password of the user (min length: 6, max length: 10).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserModel.email">
+<span class="sig-name descname"><span class="pre">email</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.UserModel.email" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserModel.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.UserModel.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.UserModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserModel.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'password':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MinLen(min_length=6),</span> <span class="pre">MaxLen(max_length=10)]),</span> <span class="pre">'username':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True,</span> <span class="pre">metadata=[MinLen(min_length=5),</span> <span class="pre">MaxLen(max_length=16)])}</span></em><a class="headerlink" href="#hw11.schemas.UserModel.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserModel.password">
+<span class="sig-name descname"><span class="pre">password</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.UserModel.password" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserModel.username">
+<span class="sig-name descname"><span class="pre">username</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.UserModel.username" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.schemas.UserResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.schemas.</span></span><span class="sig-name descname"><span class="pre">UserResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hw11.schemas.UserDb" title="hw11.schemas.UserDb"><span class="pre">UserDb</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'User</span> <span class="pre">successfully</span> <span class="pre">created'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.schemas.UserResponse" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Pydantic model representing the response after user creation.</p>
+<p>Attributes:
+- user (UserDb): The user data.
+- detail (str): Additional detail message (default: “User successfully created”).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserResponse.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.schemas.UserResponse.detail" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserResponse.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.UserResponse.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserResponse.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.schemas.UserResponse.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserResponse.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'detail':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='User</span> <span class="pre">successfully</span> <span class="pre">created'),</span> <span class="pre">'user':</span> <span class="pre">FieldInfo(annotation=UserDb,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#hw11.schemas.UserResponse.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.schemas.UserResponse.user">
+<span class="sig-name descname"><span class="pre">user</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#hw11.schemas.UserDb" title="hw11.schemas.UserDb"><span class="pre">UserDb</span></a></em><a class="headerlink" href="#hw11.schemas.UserResponse.user" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hw11.database.db">
+<span id="rest-api-database-database"></span><h1>REST API database Database<a class="headerlink" href="#module-hw11.database.db" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hw11.database.db.get_db">
+<span class="sig-prename descclassname"><span class="pre">hw11.database.db.</span></span><span class="sig-name descname"><span class="pre">get_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hw11.database.db.get_db" title="Link to this definition">¶</a></dt>
+<dd><p>Dependency function to get a database session.</p>
+<p>Yields:
+- Session: A SQLAlchemy database session.</p>
+<p>Usage:
+python
+with get_db() as db:
+# Perform database operations using db</p>
+</dd></dl>
+
+</section>
+<section id="module-hw11.database.models">
+<span id="rest-api-database-models"></span><h1>REST API database Models<a class="headerlink" href="#module-hw11.database.models" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.database.models.Contact">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.database.models.</span></span><span class="sig-name descname"><span class="pre">Contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.database.models.Contact" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>SQLAlchemy model representing a contact.</p>
+<p>Attributes:
+- id (int): The unique identifier of the contact.
+- first_name (str): The first name of the contact.
+- last_name (str): The last name of the contact.
+- email (str): The email address of the contact.
+- phone (str): The phone number of the contact.
+- birthday (Date): The birthday of the contact.
+- user_id (int, ForeignKey): The foreign key referencing the user to whom the contact belongs.
+- user (relationship): Relationship to the User model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.Contact.birthday">
+<span class="sig-name descname"><span class="pre">birthday</span></span><a class="headerlink" href="#hw11.database.models.Contact.birthday" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.Contact.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#hw11.database.models.Contact.email" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.Contact.first_name">
+<span class="sig-name descname"><span class="pre">first_name</span></span><a class="headerlink" href="#hw11.database.models.Contact.first_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.Contact.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#hw11.database.models.Contact.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.Contact.last_name">
+<span class="sig-name descname"><span class="pre">last_name</span></span><a class="headerlink" href="#hw11.database.models.Contact.last_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.Contact.phone">
+<span class="sig-name descname"><span class="pre">phone</span></span><a class="headerlink" href="#hw11.database.models.Contact.phone" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.Contact.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#hw11.database.models.Contact.user" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.Contact.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#hw11.database.models.Contact.user_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.database.models.User">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.database.models.</span></span><span class="sig-name descname"><span class="pre">User</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.database.models.User" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>SQLAlchemy model representing a user.</p>
+<p>Attributes:
+- id (int): The unique identifier of the user.
+- username (str): The username of the user.
+- email (str): The email address of the user.
+- password (str): The hashed password of the user.
+- created_at (DateTime): The timestamp when the user was created.
+- avatar (str): The URL of the user’s avatar.
+- refresh_token (str): The refresh token associated with the user.
+- confirmed (bool): Flag indicating whether the user’s email is confirmed.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.User.avatar">
+<span class="sig-name descname"><span class="pre">avatar</span></span><a class="headerlink" href="#hw11.database.models.User.avatar" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.User.confirmed">
+<span class="sig-name descname"><span class="pre">confirmed</span></span><a class="headerlink" href="#hw11.database.models.User.confirmed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.User.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#hw11.database.models.User.created_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.User.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#hw11.database.models.User.email" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.User.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#hw11.database.models.User.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.User.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#hw11.database.models.User.password" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.User.refresh_token">
+<span class="sig-name descname"><span class="pre">refresh_token</span></span><a class="headerlink" href="#hw11.database.models.User.refresh_token" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.database.models.User.username">
+<span class="sig-name descname"><span class="pre">username</span></span><a class="headerlink" href="#hw11.database.models.User.username" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hw11.conf.config">
+<span id="rest-api-config"></span><h1>REST API config<a class="headerlink" href="#module-hw11.conf.config" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hw11.conf.config.</span></span><span class="sig-name descname"><span class="pre">Settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_case_sensitive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DotenvType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('.')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_ignore_empty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_parse_none_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_secrets_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">POSTGRES_DB</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">POSTGRES_USER</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">POSTGRES_PASSWORD</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">POSTGRES_PORT</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqlalchemy_database_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mail_username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mail_password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mail_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mail_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mail_server</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redis_host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redis_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloudinary_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloudinary_api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloudinary_api_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hw11.conf.config.Settings" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSettings</span></code></p>
+<p>Settings class defining configuration options for the application.</p>
+<p>Attributes:
+- POSTGRES_DB (str): The name of the PostgreSQL database.
+- POSTGRES_USER (str): The username for accessing the PostgreSQL database.
+- POSTGRES_PASSWORD (str): The password for accessing the PostgreSQL database.
+- POSTGRES_PORT (int): The port number for the PostgreSQL database.
+- sqlalchemy_database_url (str): The URL for connecting to the PostgreSQL database.
+- secret_key (str): The secret key used for cryptographic operations.
+- algorithm (str): The algorithm used for cryptographic operations.
+- mail_username (str): The username for accessing the mail server.
+- mail_password (str): The password for accessing the mail server.
+- mail_from (str): The email address from which emails are sent.
+- mail_port (int): The port number for the mail server.
+- mail_server (str): The address of the mail server.
+- redis_host (str): The hostname of the Redis server.
+- redis_port (int): The port number for the Redis server.
+- cloudinary_name (str): The name of the Cloudinary account.
+- cloudinary_api_key (str): The API key for accessing the Cloudinary API.
+- cloudinary_api_secret (str): The API secret for accessing the Cloudinary API.</p>
+<p>Configuration:
+- env_file (str): The path to the environment file containing configuration variables (default: “.env”).
+- env_file_encoding (str): The encoding of the environment file (default: “utf-8”).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#hw11.conf.config.Settings.Config" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.Config.env_file">
+<span class="sig-name descname"><span class="pre">env_file</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'.env'</span></em><a class="headerlink" href="#hw11.conf.config.Settings.Config.env_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.Config.env_file_encoding">
+<span class="sig-name descname"><span class="pre">env_file_encoding</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'utf-8'</span></em><a class="headerlink" href="#hw11.conf.config.Settings.Config.env_file_encoding" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.POSTGRES_DB">
+<span class="sig-name descname"><span class="pre">POSTGRES_DB</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.POSTGRES_DB" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.POSTGRES_PASSWORD">
+<span class="sig-name descname"><span class="pre">POSTGRES_PASSWORD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.POSTGRES_PASSWORD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.POSTGRES_PORT">
+<span class="sig-name descname"><span class="pre">POSTGRES_PORT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hw11.conf.config.Settings.POSTGRES_PORT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.POSTGRES_USER">
+<span class="sig-name descname"><span class="pre">POSTGRES_USER</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.POSTGRES_USER" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.algorithm">
+<span class="sig-name descname"><span class="pre">algorithm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.algorithm" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.cloudinary_api_key">
+<span class="sig-name descname"><span class="pre">cloudinary_api_key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.cloudinary_api_key" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.cloudinary_api_secret">
+<span class="sig-name descname"><span class="pre">cloudinary_api_secret</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.cloudinary_api_secret" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.cloudinary_name">
+<span class="sig-name descname"><span class="pre">cloudinary_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.cloudinary_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.mail_from">
+<span class="sig-name descname"><span class="pre">mail_from</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.mail_from" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.mail_password">
+<span class="sig-name descname"><span class="pre">mail_password</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.mail_password" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.mail_port">
+<span class="sig-name descname"><span class="pre">mail_port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hw11.conf.config.Settings.mail_port" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.mail_server">
+<span class="sig-name descname"><span class="pre">mail_server</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.mail_server" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.mail_username">
+<span class="sig-name descname"><span class="pre">mail_username</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.mail_username" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#hw11.conf.config.Settings.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">SettingsConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'arbitrary_types_allowed':</span> <span class="pre">True,</span> <span class="pre">'case_sensitive':</span> <span class="pre">False,</span> <span class="pre">'env_file':</span> <span class="pre">'.env',</span> <span class="pre">'env_file_encoding':</span> <span class="pre">'utf-8',</span> <span class="pre">'env_ignore_empty':</span> <span class="pre">False,</span> <span class="pre">'env_nested_delimiter':</span> <span class="pre">None,</span> <span class="pre">'env_parse_none_str':</span> <span class="pre">None,</span> <span class="pre">'env_prefix':</span> <span class="pre">'',</span> <span class="pre">'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'json_file':</span> <span class="pre">None,</span> <span class="pre">'json_file_encoding':</span> <span class="pre">None,</span> <span class="pre">'protected_namespaces':</span> <span class="pre">('model_',</span> <span class="pre">'settings_'),</span> <span class="pre">'secrets_dir':</span> <span class="pre">None,</span> <span class="pre">'toml_file':</span> <span class="pre">None,</span> <span class="pre">'validate_default':</span> <span class="pre">True,</span> <span class="pre">'yaml_file':</span> <span class="pre">None,</span> <span class="pre">'yaml_file_encoding':</span> <span class="pre">None}</span></em><a class="headerlink" href="#hw11.conf.config.Settings.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POSTGRES_DB':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'POSTGRES_PASSWORD':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'POSTGRES_PORT':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'POSTGRES_USER':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'algorithm':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'cloudinary_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'cloudinary_api_secret':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'cloudinary_name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'mail_from':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'mail_password':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'mail_port':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'mail_server':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'mail_username':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'redis_host':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'redis_port':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'secret_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'sqlalchemy_database_url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#hw11.conf.config.Settings.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.redis_host">
+<span class="sig-name descname"><span class="pre">redis_host</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.redis_host" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.redis_port">
+<span class="sig-name descname"><span class="pre">redis_port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hw11.conf.config.Settings.redis_port" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.secret_key">
+<span class="sig-name descname"><span class="pre">secret_key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.secret_key" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hw11.conf.config.Settings.sqlalchemy_database_url">
+<span class="sig-name descname"><span class="pre">sqlalchemy_database_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#hw11.conf.config.Settings.sqlalchemy_database_url" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Welcome to REST API’s documentation!</a></li>
+<li><a class="reference internal" href="#id1">Welcome to Rest API’s documentation!</a></li>
+<li><a class="reference internal" href="#module-main">REST API main</a><ul>
+<li><a class="reference internal" href="#main.read_root"><code class="docutils literal notranslate"><span class="pre">read_root()</span></code></a></li>
+<li><a class="reference internal" href="#main.startup"><code class="docutils literal notranslate"><span class="pre">startup()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.repository.contacts">REST API repository Contacts</a><ul>
+<li><a class="reference internal" href="#hw11.repository.contacts.create_contact"><code class="docutils literal notranslate"><span class="pre">create_contact()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.repository.contacts.get_contact"><code class="docutils literal notranslate"><span class="pre">get_contact()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.repository.contacts.get_contacts"><code class="docutils literal notranslate"><span class="pre">get_contacts()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.repository.contacts.remove_contact"><code class="docutils literal notranslate"><span class="pre">remove_contact()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.repository.contacts.upcoming_birthdays"><code class="docutils literal notranslate"><span class="pre">upcoming_birthdays()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.repository.contacts.update_contact"><code class="docutils literal notranslate"><span class="pre">update_contact()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.repository.users">REST API repository Users</a><ul>
+<li><a class="reference internal" href="#hw11.repository.users.confirmed_email"><code class="docutils literal notranslate"><span class="pre">confirmed_email()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.repository.users.create_user"><code class="docutils literal notranslate"><span class="pre">create_user()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.repository.users.get_user_by_email"><code class="docutils literal notranslate"><span class="pre">get_user_by_email()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.repository.users.update_avatar"><code class="docutils literal notranslate"><span class="pre">update_avatar()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.repository.users.update_token"><code class="docutils literal notranslate"><span class="pre">update_token()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.routes.auth">REST API routes Auth</a><ul>
+<li><a class="reference internal" href="#hw11.routes.auth.confirmed_email"><code class="docutils literal notranslate"><span class="pre">confirmed_email()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.auth.login"><code class="docutils literal notranslate"><span class="pre">login()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.auth.refresh_token"><code class="docutils literal notranslate"><span class="pre">refresh_token()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.auth.request_email"><code class="docutils literal notranslate"><span class="pre">request_email()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.auth.signup"><code class="docutils literal notranslate"><span class="pre">signup()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.routes.contacts">REST API routes Contacts</a><ul>
+<li><a class="reference internal" href="#hw11.routes.contacts.create_contact"><code class="docutils literal notranslate"><span class="pre">create_contact()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.contacts.find_contact"><code class="docutils literal notranslate"><span class="pre">find_contact()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.contacts.read_contacts"><code class="docutils literal notranslate"><span class="pre">read_contacts()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.contacts.remove_contact"><code class="docutils literal notranslate"><span class="pre">remove_contact()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.contacts.upcoming_birthdays"><code class="docutils literal notranslate"><span class="pre">upcoming_birthdays()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.contacts.update_contact"><code class="docutils literal notranslate"><span class="pre">update_contact()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.routes.users">REST API routes Users</a><ul>
+<li><a class="reference internal" href="#hw11.routes.users.read_users_me"><code class="docutils literal notranslate"><span class="pre">read_users_me()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.routes.users.update_avatar_user"><code class="docutils literal notranslate"><span class="pre">update_avatar_user()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.services.auth">REST API service Auth</a><ul>
+<li><a class="reference internal" href="#hw11.services.auth.Auth"><code class="docutils literal notranslate"><span class="pre">Auth</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.ALGORITHM"><code class="docutils literal notranslate"><span class="pre">Auth.ALGORITHM</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.SECRET_KEY"><code class="docutils literal notranslate"><span class="pre">Auth.SECRET_KEY</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.create_access_token"><code class="docutils literal notranslate"><span class="pre">Auth.create_access_token()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.create_email_token"><code class="docutils literal notranslate"><span class="pre">Auth.create_email_token()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.create_refresh_token"><code class="docutils literal notranslate"><span class="pre">Auth.create_refresh_token()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.decode_refresh_token"><code class="docutils literal notranslate"><span class="pre">Auth.decode_refresh_token()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.get_current_user"><code class="docutils literal notranslate"><span class="pre">Auth.get_current_user()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.get_email_from_token"><code class="docutils literal notranslate"><span class="pre">Auth.get_email_from_token()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.get_password_hash"><code class="docutils literal notranslate"><span class="pre">Auth.get_password_hash()</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.oauth2_scheme"><code class="docutils literal notranslate"><span class="pre">Auth.oauth2_scheme</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.pwd_context"><code class="docutils literal notranslate"><span class="pre">Auth.pwd_context</span></code></a></li>
+<li><a class="reference internal" href="#hw11.services.auth.Auth.verify_password"><code class="docutils literal notranslate"><span class="pre">Auth.verify_password()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.services.email">REST API service Email</a><ul>
+<li><a class="reference internal" href="#hw11.services.email.send_email"><code class="docutils literal notranslate"><span class="pre">send_email()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.schemas">REST API schemas</a><ul>
+<li><a class="reference internal" href="#hw11.schemas.ContactModel"><code class="docutils literal notranslate"><span class="pre">ContactModel</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.schemas.ContactModel.birthday"><code class="docutils literal notranslate"><span class="pre">ContactModel.birthday</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactModel.email"><code class="docutils literal notranslate"><span class="pre">ContactModel.email</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactModel.first_name"><code class="docutils literal notranslate"><span class="pre">ContactModel.first_name</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactModel.last_name"><code class="docutils literal notranslate"><span class="pre">ContactModel.last_name</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">ContactModel.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactModel.model_config"><code class="docutils literal notranslate"><span class="pre">ContactModel.model_config</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactModel.model_fields"><code class="docutils literal notranslate"><span class="pre">ContactModel.model_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactModel.phone"><code class="docutils literal notranslate"><span class="pre">ContactModel.phone</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.schemas.ContactResponse"><code class="docutils literal notranslate"><span class="pre">ContactResponse</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.schemas.ContactResponse.Config"><code class="docutils literal notranslate"><span class="pre">ContactResponse.Config</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.schemas.ContactResponse.Config.orm_mode"><code class="docutils literal notranslate"><span class="pre">ContactResponse.Config.orm_mode</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.schemas.ContactResponse.id"><code class="docutils literal notranslate"><span class="pre">ContactResponse.id</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactResponse.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">ContactResponse.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactResponse.model_config"><code class="docutils literal notranslate"><span class="pre">ContactResponse.model_config</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.ContactResponse.model_fields"><code class="docutils literal notranslate"><span class="pre">ContactResponse.model_fields</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.schemas.RequestEmail"><code class="docutils literal notranslate"><span class="pre">RequestEmail</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.schemas.RequestEmail.email"><code class="docutils literal notranslate"><span class="pre">RequestEmail.email</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.RequestEmail.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">RequestEmail.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.RequestEmail.model_config"><code class="docutils literal notranslate"><span class="pre">RequestEmail.model_config</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.RequestEmail.model_fields"><code class="docutils literal notranslate"><span class="pre">RequestEmail.model_fields</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.schemas.TokenModel"><code class="docutils literal notranslate"><span class="pre">TokenModel</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.schemas.TokenModel.access_token"><code class="docutils literal notranslate"><span class="pre">TokenModel.access_token</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.TokenModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">TokenModel.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.TokenModel.model_config"><code class="docutils literal notranslate"><span class="pre">TokenModel.model_config</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.TokenModel.model_fields"><code class="docutils literal notranslate"><span class="pre">TokenModel.model_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.TokenModel.refresh_token"><code class="docutils literal notranslate"><span class="pre">TokenModel.refresh_token</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.TokenModel.token_type"><code class="docutils literal notranslate"><span class="pre">TokenModel.token_type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.schemas.UserDb"><code class="docutils literal notranslate"><span class="pre">UserDb</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.Config"><code class="docutils literal notranslate"><span class="pre">UserDb.Config</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.Config.orm_mode"><code class="docutils literal notranslate"><span class="pre">UserDb.Config.orm_mode</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.avatar"><code class="docutils literal notranslate"><span class="pre">UserDb.avatar</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.created_at"><code class="docutils literal notranslate"><span class="pre">UserDb.created_at</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.email"><code class="docutils literal notranslate"><span class="pre">UserDb.email</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.id"><code class="docutils literal notranslate"><span class="pre">UserDb.id</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">UserDb.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.model_config"><code class="docutils literal notranslate"><span class="pre">UserDb.model_config</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.model_fields"><code class="docutils literal notranslate"><span class="pre">UserDb.model_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserDb.username"><code class="docutils literal notranslate"><span class="pre">UserDb.username</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.schemas.UserModel"><code class="docutils literal notranslate"><span class="pre">UserModel</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.schemas.UserModel.email"><code class="docutils literal notranslate"><span class="pre">UserModel.email</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserModel.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">UserModel.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserModel.model_config"><code class="docutils literal notranslate"><span class="pre">UserModel.model_config</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserModel.model_fields"><code class="docutils literal notranslate"><span class="pre">UserModel.model_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserModel.password"><code class="docutils literal notranslate"><span class="pre">UserModel.password</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserModel.username"><code class="docutils literal notranslate"><span class="pre">UserModel.username</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.schemas.UserResponse"><code class="docutils literal notranslate"><span class="pre">UserResponse</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.schemas.UserResponse.detail"><code class="docutils literal notranslate"><span class="pre">UserResponse.detail</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserResponse.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">UserResponse.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserResponse.model_config"><code class="docutils literal notranslate"><span class="pre">UserResponse.model_config</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserResponse.model_fields"><code class="docutils literal notranslate"><span class="pre">UserResponse.model_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.schemas.UserResponse.user"><code class="docutils literal notranslate"><span class="pre">UserResponse.user</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.database.db">REST API database Database</a><ul>
+<li><a class="reference internal" href="#hw11.database.db.get_db"><code class="docutils literal notranslate"><span class="pre">get_db()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.database.models">REST API database Models</a><ul>
+<li><a class="reference internal" href="#hw11.database.models.Contact"><code class="docutils literal notranslate"><span class="pre">Contact</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.database.models.Contact.birthday"><code class="docutils literal notranslate"><span class="pre">Contact.birthday</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.Contact.email"><code class="docutils literal notranslate"><span class="pre">Contact.email</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.Contact.first_name"><code class="docutils literal notranslate"><span class="pre">Contact.first_name</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.Contact.id"><code class="docutils literal notranslate"><span class="pre">Contact.id</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.Contact.last_name"><code class="docutils literal notranslate"><span class="pre">Contact.last_name</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.Contact.phone"><code class="docutils literal notranslate"><span class="pre">Contact.phone</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.Contact.user"><code class="docutils literal notranslate"><span class="pre">Contact.user</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.Contact.user_id"><code class="docutils literal notranslate"><span class="pre">Contact.user_id</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.database.models.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.database.models.User.avatar"><code class="docutils literal notranslate"><span class="pre">User.avatar</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.User.confirmed"><code class="docutils literal notranslate"><span class="pre">User.confirmed</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.User.created_at"><code class="docutils literal notranslate"><span class="pre">User.created_at</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.User.email"><code class="docutils literal notranslate"><span class="pre">User.email</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.User.id"><code class="docutils literal notranslate"><span class="pre">User.id</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.User.password"><code class="docutils literal notranslate"><span class="pre">User.password</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.User.refresh_token"><code class="docutils literal notranslate"><span class="pre">User.refresh_token</span></code></a></li>
+<li><a class="reference internal" href="#hw11.database.models.User.username"><code class="docutils literal notranslate"><span class="pre">User.username</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-hw11.conf.config">REST API config</a><ul>
+<li><a class="reference internal" href="#hw11.conf.config.Settings"><code class="docutils literal notranslate"><span class="pre">Settings</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.Config"><code class="docutils literal notranslate"><span class="pre">Settings.Config</span></code></a><ul>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.Config.env_file"><code class="docutils literal notranslate"><span class="pre">Settings.Config.env_file</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.Config.env_file_encoding"><code class="docutils literal notranslate"><span class="pre">Settings.Config.env_file_encoding</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.POSTGRES_DB"><code class="docutils literal notranslate"><span class="pre">Settings.POSTGRES_DB</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.POSTGRES_PASSWORD"><code class="docutils literal notranslate"><span class="pre">Settings.POSTGRES_PASSWORD</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.POSTGRES_PORT"><code class="docutils literal notranslate"><span class="pre">Settings.POSTGRES_PORT</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.POSTGRES_USER"><code class="docutils literal notranslate"><span class="pre">Settings.POSTGRES_USER</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.algorithm"><code class="docutils literal notranslate"><span class="pre">Settings.algorithm</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.cloudinary_api_key"><code class="docutils literal notranslate"><span class="pre">Settings.cloudinary_api_key</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.cloudinary_api_secret"><code class="docutils literal notranslate"><span class="pre">Settings.cloudinary_api_secret</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.cloudinary_name"><code class="docutils literal notranslate"><span class="pre">Settings.cloudinary_name</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.mail_from"><code class="docutils literal notranslate"><span class="pre">Settings.mail_from</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.mail_password"><code class="docutils literal notranslate"><span class="pre">Settings.mail_password</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.mail_port"><code class="docutils literal notranslate"><span class="pre">Settings.mail_port</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.mail_server"><code class="docutils literal notranslate"><span class="pre">Settings.mail_server</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.mail_username"><code class="docutils literal notranslate"><span class="pre">Settings.mail_username</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">Settings.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.model_config"><code class="docutils literal notranslate"><span class="pre">Settings.model_config</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.model_fields"><code class="docutils literal notranslate"><span class="pre">Settings.model_fields</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.redis_host"><code class="docutils literal notranslate"><span class="pre">Settings.redis_host</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.redis_port"><code class="docutils literal notranslate"><span class="pre">Settings.redis_port</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.secret_key"><code class="docutils literal notranslate"><span class="pre">Settings.secret_key</span></code></a></li>
+<li><a class="reference internal" href="#hw11.conf.config.Settings.sqlalchemy_database_url"><code class="docutils literal notranslate"><span class="pre">Settings.sqlalchemy_database_url</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">REST API  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to REST API’s documentation!</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Polina Kulish.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    </div>
+  </body>
+</html>

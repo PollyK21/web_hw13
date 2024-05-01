@@ -1,9 +1,7 @@
 from pathlib import Path
-
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
 from fastapi_mail.errors import ConnectionErrors
 from pydantic import EmailStr
-
 from hw11.services.auth import auth_service
 from hw11.conf.config import settings
 
@@ -21,15 +19,24 @@ conf = ConnectionConfig(
     TEMPLATE_FOLDER=Path(__file__).parent / 'templates',
 )
 
-
 async def send_email(email: EmailStr, username: str, host: str):
+    """
+    Sends an email for email verification.
+
+    Parameters:
+    - email (EmailStr): The email address of the recipient.
+    - username (str): The username of the recipient.
+    - host (str): The base URL of the application.
+
+    Raises:
+    - ConnectionErrors: If there is an error connecting to the mail server.
+    """
     try:
         token_verification = auth_service.create_email_token({"sub": email})
         message = MessageSchema(
-            subject="Confirm your email ",
+            subject="Confirm your email",
             recipients=[email],
-            template_body={"host": host, "username": username,
-                           "token": token_verification},
+            template_body={"host": host, "username": username, "token": token_verification},
             subtype=MessageType.html
         )
 

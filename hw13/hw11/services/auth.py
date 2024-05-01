@@ -13,19 +13,51 @@ from hw11.conf.config import settings
 
 
 class Auth:
+    """
+    Class containing authentication related methods.
+    """
+
     pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
     SECRET_KEY = settings.secret_key
     ALGORITHM = settings.algorithm
     oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
 
     def verify_password(self, plain_password, hashed_password):
+        """
+        Verifies if the provided plain password matches the hashed password.
+
+        Parameters:
+        - plain_password (str): The plain password.
+        - hashed_password (str): The hashed password.
+
+        Returns:
+        - bool: True if passwords match, False otherwise.
+        """
         return self.pwd_context.verify(plain_password, hashed_password)
 
     def get_password_hash(self, password: str):
+        """
+        Generates the hash for the provided password.
+
+        Parameters:
+        - password (str): The password to hash.
+
+        Returns:
+        - str: The hashed password.
+        """
         return self.pwd_context.hash(password)
 
-    # define a function to generate a new access token
     async def create_access_token(self, data: dict, expires_delta: Optional[float] = None):
+        """
+        Generates a new access token.
+
+        Parameters:
+        - data (dict): The payload data to encode in the token.
+        - expires_delta (Optional[float]): Optional expiration time for the token in seconds.
+
+        Returns:
+        - str: The encoded access token.
+        """
         to_encode = data.copy()
         if expires_delta:
             expire = datetime.utcnow() + timedelta(seconds=expires_delta)
@@ -37,8 +69,17 @@ class Auth:
             to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
         return encoded_access_token
 
-    # define a function to generate a new refresh token
     async def create_refresh_token(self, data: dict, expires_delta: Optional[float] = None):
+        """
+        Generates a new refresh token.
+
+        Parameters:
+        - data (dict): The payload data to encode in the token.
+        - expires_delta (Optional[float]): Optional expiration time for the token in seconds.
+
+        Returns:
+        - str: The encoded refresh token.
+        """
         to_encode = data.copy()
         if expires_delta:
             expire = datetime.utcnow() + timedelta(seconds=expires_delta)
@@ -51,6 +92,18 @@ class Auth:
         return encoded_refresh_token
 
     async def decode_refresh_token(self, refresh_token: str):
+        """
+        Decodes the provided refresh token and retrieves the email from its payload.
+
+        Parameters:
+        - refresh_token (str): The refresh token to decode.
+
+        Returns:
+        - str: The email address extracted from the token payload.
+
+        Raises:
+        - HTTPException: If the token cannot be validated.
+        """
         try:
             payload = jwt.decode(
                 refresh_token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
@@ -64,6 +117,19 @@ class Auth:
                                 detail='Could not validate credentials')
 
     async def get_current_user(self, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+        """
+        Retrieves the current user based on the provided access token.
+
+        Parameters:
+        - token (str): The access token.
+        - db (Session): The database session.
+
+        Returns:
+        - User: The current user.
+
+        Raises:
+        - HTTPException: If the token cannot be validated or the user cannot be found.
+        """
         credentials_exception = HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Could not validate credentials",
@@ -89,6 +155,15 @@ class Auth:
         return user
 
     def create_email_token(self, data: dict):
+        """
+        Generates a token for email verification.
+
+        Parameters:
+        - data (dict): The payload data to encode in the token.
+
+        Returns:
+        - str: The encoded email verification token.
+        """
         to_encode = data.copy()
         expire = datetime.utcnow() + timedelta(days=7)
         to_encode.update({"iat": datetime.utcnow(), "exp": expire})
@@ -97,6 +172,18 @@ class Auth:
         return token
 
     async def get_email_from_token(self, token: str):
+        """
+        Retrieves the email address from the provided email verification token.
+
+        Parameters:
+        - token (str): The email verification token.
+
+        Returns:
+        - str: The email address extracted from the token payload.
+
+        Raises:
+        - HTTPException: If the token cannot be validated.
+        """
         try:
             payload = jwt.decode(token, self.SECRET_KEY,
                                  algorithms=[self.ALGORITHM])

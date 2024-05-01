@@ -6,10 +6,21 @@ SQLALCHEMY_DATABASE_URL = settings.sqlalchemy_database_url
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-
 # Dependency
+
+
 def get_db():
+    """
+    Dependency function to get a database session.
+
+    Yields:
+    - Session: A SQLAlchemy database session.
+
+    Usage:
+    python
+    with get_db() as db:
+    # Perform database operations using db
+    """
     db = SessionLocal()
     try:
         yield db

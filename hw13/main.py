@@ -25,10 +25,17 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup():
+    """
+    This function is called when the application starts up.
+    It initializes the Redis connection and sets up rate limiting.
+    """
     r = await redis.Redis(host=settings.redis_host, port=settings.redis_port, db=0, encoding="utf-8",
                           decode_responses=True)
     await FastAPILimiter.init(r)
 
 @app.get("/")
 def read_root():
+    """
+    A simple root endpoint that returns a welcome message.
+    """
     return {"message": "Hello World"}
